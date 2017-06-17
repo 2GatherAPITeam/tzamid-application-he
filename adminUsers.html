@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!--tsamid css -->
+    <link rel="stylesheet" type="text/css" href="includes/style.css">
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    
+    <!--Table-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+<header>
+    <div class="headerContainer">
+        <div class="headerD">
+            <a href="adminPanel.html"><img src="images/heart.png"> צמ"ד</a>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li class="bold"><a href="homePage.html">צמי"ד</a></li>
+                <li><a href="adminPanel.html">דף הבית</a></li>
+                <li><a href="adminLibrary.html">ספריה</a></li>
+                <li><a href="adminUsers.html">משתמשים</a></li>
+                <li><a href="adminMessageBoard.html">לוח חדשות</a></li>
+                <li><a href="adminDevices.html">מכשירים</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="clear"></div>
+</header>
+
+<div>
+</div>
+<div class="clear"></div>
+</header>
+
+<div class="wrapper">
+
+    <div class="container">
+        <h2 style="text-align: center ; margin-bottom: 2%">ניהול תוכן - משתמשים</h2>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>שם משתמש</th>
+                <th>סיסמה</th>
+                <th>שפה נתמכת</th>
+                <th>דואר אלקטרוני</th>
+                <th>מכשיר נתמך</th>
+                <th>כלי עזר</th>
+                <th>פעולות</th>
+            </tr>
+            </thead>
+            <tbody id="table">
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- Trigger the modal with a button -->
+    <button class="adminButton" type="button" class="btn btn-success" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addUser"> + </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addUser" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">הירשם ילד חדש</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form class="form-horizontal" action="https://tsamid-ws.herokuapp.com/tsamid/addNewUser" method="POST" >
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="nickName">שם משתמש: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="nickName" placeholder="שם משתמש" name="nickName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="pwd">סיסמה: </label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="pwd" placeholder="סיסמה" name="password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="mail">דואר אלקטרוני: </label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="mail" placeholder="דואר אלקטרוני" name="mail">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >מכשיר נתמך: </label>
+                            <div class="col-sm-10">
+                                <select name="device" id="deviceAddUser">
+                                //get options dynamic from ws
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >כלי עזר</label>
+                            <div class="col-sm-10">
+                                <select name="utils" multiple>
+                                    <option value="voice command">voice command</option>
+                                    <option value="ttv">ttv</option>
+                                    <option value="virtual keyboard">virtual keyboard</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">שפה נתמכת: </label>
+                            <div class="col-sm-10">
+                                <select name="lang">
+                                    <option value="english">English</option>
+                                    <option value="arabic">ألعربيه</option>
+                                    <option value="hebrew">עברית</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-basic">הוסיף</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="removeUser" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">מחק משתמש מהרשימה</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" action="https://tsamid-ws.herokuapp.com/tsamid/removeUser" method="POST" >
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="userRemove">שם משתמש: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="userRemove" placeholder="שם משתמש" name="nickName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-basic">מחק</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--modal for edit button-->
+    <!-- Modal -->
+    <div class="modal fade" id="edit" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">עדכן משתמש</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form class="form-horizontal" action="https://tsamid-ws.herokuapp.com/tsamid/editUser" method="POST" >
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="nickName">שם משתמש: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="editNickName" placeholder="שם משתמש" name="nickName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="pwd">סיסמה: </label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="editPwd" placeholder="סיסמה" name="password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="mail">דואר אלקטרוני:</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="editMail" placeholder="דואר אלקטרוני" name="mail">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >מכשיר נתמך: </label>
+                            <div class="col-sm-10">
+                                <select name="device" id="deviceEditUser">
+                                //dynamic from server
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >כלי עזר: </label>
+                            <div class="col-sm-10">
+                                <select name="utils" id="editUtils" multiple>
+                                    <option value="voice command">voice command</option>
+                                    <option value="ttv">ttv</option>
+                                    <option value="virtual keyboard">virtual keyboard</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">שפה נתמכת: </label>
+                            <div class="col-sm-10">
+                                <select name="lang" id="editLang">
+                                    <option id="English" value="english">English</option>
+                                    <option id="Arabic" value="arabic">ألعربيه</option>
+                                    <option id="Hebrew" value="hebrew">עברית</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-basic">עדכן </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</div>
+<div class="grass"></div>
+
+<script>
+
+
+
+    (function(){
+
+        var devicesAddUser = document.getElementById("deviceAddUser");
+        var devicesEditUser = document.getElementById("deviceEditUser");
+
+        $.get( "https://tsamid-ws.herokuapp.com/tsamid/getDevices", function( data ) {
+            $.each( data["data"], function( key, val ) {
+
+                var optionAdd = document.createElement("option");
+                var optionEdit = document.createElement("option");
+
+                $.each( val, function( key, val ) {
+                    console.log("key " + key + " val " + val)
+
+                    if (key == "productName") {
+                        optionAdd.setAttribute("value",val);
+                        optionAdd.innerHTML += val;
+
+                        optionEdit.setAttribute("value",val);
+                        optionEdit.innerHTML += val;                   }
+                });
+                devicesAddUser.appendChild(optionAdd);
+                devicesEditUser.appendChild(optionEdit);
+            });
+        });
+
+        var table = document.getElementById("table");
+
+        $.get( "https://tsamid-ws.herokuapp.com/tsamid/getUsers", function( data ) {
+            $.each( data["data"], function( key, val ) {
+                var tr = document.createElement("tr");
+
+                $.each( val, function( key, val ) {
+                    console.log("key " + key + " val " + val)
+
+                    var td = document.createElement("td");
+
+                    if(key == "nickName"){
+                        td.innerHTML = val ;
+                    }
+                    else if(key == "password"){
+                        td.innerHTML = val;
+                    }
+                    else if(key == "mail"){
+                        td.innerHTML = val ;
+                    }
+                    else if(key == "device"){
+                        td.innerHTML = val;
+                    }
+                    else if(key == "lang"){
+                        td.innerHTML = val;
+                    }
+                    else if(key == "utils"){
+                        td.innerHTML = val;
+                    }
+                    tr.appendChild(td);
+
+                });
+                var tdEdit = document.createElement("td");
+
+                var editButton = document.createElement("button");
+                editButton.setAttribute("type","button");
+                editButton.setAttribute("class","use-edit");
+                editButton.setAttribute("onclick","myScriptEdit(this)");
+                editButton.setAttribute("data-toggle","modal");
+                editButton.setAttribute("data-target","#edit");
+                editButton.innerHTML += "/";
+
+                var removeButton = document.createElement("button");
+                removeButton.setAttribute("type","button");
+                removeButton.setAttribute("class","use-remove");
+                removeButton.setAttribute("onclick","myScriptDelete(this)");
+                removeButton.setAttribute("data-toggle","modal");
+                removeButton.setAttribute("data-target","#removeUser");
+                removeButton.innerHTML += " - ";
+
+
+                tdEdit.appendChild(editButton);
+                tdEdit.appendChild(removeButton);
+                tr.appendChild(tdEdit);
+
+                table.appendChild(tr);
+                console.log("--------------------")
+
+            });
+        });
+
+
+    })();
+
+    //get value from table to remove table
+    function myScriptDelete(element){
+
+        var $row = jQuery(element).closest('tr');
+        var $columns = $row.find('td');
+
+        var values = "";
+
+        jQuery.each($columns, function (i, item) {
+            values = item.innerHTML;
+            if (i == 0) {
+                document.getElementById("userRemove").value = values
+            }
+
+        });
+    }
+
+
+    //get value from table to edit table
+    function myScriptEdit(element) {
+
+        var $row = jQuery(element).closest('tr');
+        var $columns = $row.find('td');
+
+        var values = "";
+
+        jQuery.each($columns, function(i, item) {
+            values =  item.innerHTML ;
+            if(i == 0){
+                document.getElementById("editNickName").value = values
+            }
+            else if(i == 1){
+                document.getElementById("editPwd").value = values
+            }
+            else if(i == 2){
+                $("select#editLang").val(values)
+            }
+            else if(i == 3){
+                document.getElementById("editMail").value = values
+
+            }
+            else if(i == 4){
+                $("select#editDevice").val(values)
+                console.log(values)
+            }
+            else if(i == 5){
+                $("select#editUtils").val(values)
+                console.log(values)
+            }
+        });
+        console.log(values);
+
+    };
+
+</script>
+
+</body>
+</html>

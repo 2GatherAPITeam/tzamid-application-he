@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!--tsamid css -->
+    <link rel="stylesheet" type="text/css" href="includes/style.css">
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    
+    <!--Table-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<header>
+    <div class="headerContainer">
+        <div class="headerD">
+            <a href="adminPanel.html"><img src="images/heart.png"> צמ"ד </a>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li class="bold"><a href="homePage.html">צמי"ד</a></li>
+                <li><a href="adminPanel.html">דף הבית</a></li>
+                <li><a href="adminLibrary.html">ספריה</a></li>
+                <li><a href="adminUsers.html">משתמשים</a></li>
+                <li><a href="adminMessageBoard.html">לוח חדשות</a></li>
+                <li><a href="adminDevices.html">מכשירים</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="clear"></div>
+</header>
+
+<div>
+</div>
+<div class="clear"></div>
+</header>
+
+<div class="wrapper">
+
+    <div class="container">
+        <h2 style="text-align: center ; margin-bottom: 2%">ניהול תוכן - לוח מודעות</h2>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>מס'</th>
+                <th>תוכן</th>
+                <th>פקודה קולית</th>
+                <th>קיים קישור</th>
+                <th>שם קישור</th>
+                <th>קישור</th>
+                <th>פעולות</th>
+            </tr>
+            </thead>
+            <tbody id="table">
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- Trigger the modal with a button -->
+    <button class="adminButton" type="button" class="btn btn-success" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addParagraph"> + </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addParagraph" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">הוסף מודעה חדשה</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form class="form-horizontal" action="https://tsamid-ws.herokuapp.com/tsamid/addMessages" method="POST" >
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="number">מספר מודעה: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="number" placeholder="מספר מודעה" name="paragraphNumber">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="content">תוכן: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="content" placeholder="תוכן המודעה" name="content">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="command voice">פקודה קולית: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="command voice" placeholder="פקודה קולית" name="commandVoice">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >קיים קישור: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="Link Exist" placeholder="תכתוב כן\לא " name="linkExist">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">שם קישור: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="link text" placeholder="שם קישור" name="linkName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">קישור:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="url" placeholder="קישור" name="url">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-basic">הוסיף </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="removeParagraph" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">מחק פסקה מלוח המודעות</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" action="https://tsamid-ws.herokuapp.com/tsamid/removeMessages" method="POST" >
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="removePara">מספר מודעה: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="removePara" name="paragraphNumber">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-basic">מחק</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Modal paragraph edit -->
+    <div class="modal fade" id="editParagraph" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">ערוך מודעה חדשה</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form class="form-horizontal" action="https://tsamid-ws.herokuapp.com/tsamid/editMessages" method="POST" >
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="number">מספר מודעה: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="editNumber"  name="paragraphNumber">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="content">תוכן: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="editContent" name="content">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="command voice">פקודה קולית:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="editCommandVoice" name="commandVoice">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >קיים קישור: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="editLinkExist" name="linkExist">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">שם קישור: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="editLinkText"  name="linkName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">קישור: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="editUrl"  name="url">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-basic">אשר</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+</div>
+<div class="grass"></div>
+
+<script>
+
+    (function(){
+
+        var table = document.getElementById("table");
+
+        $.get( "https://tsamid-ws.herokuapp.com/tsamid/getMessages", function( data ) {
+            $.each( data["data"], function( key, val ) {
+                var tr = document.createElement("tr");
+
+                $.each( val, function( key, val ) {
+                    console.log("key " + key + " val " + val)
+
+                    var td = document.createElement("td");
+
+                    if(key == "id"){
+                        td.setAttribute("class","col-md-1")
+                        td.innerHTML = val ;
+                    }
+                    else if(key == "paragraph"){
+                        td.setAttribute("class","col-md-3")
+                        td.innerHTML = val;
+                    }
+                    if(key == "command"){
+                        td.setAttribute("class","col-md-2")
+                        td.innerHTML = val ;
+                    }
+                    else if(key == "linkExist"){
+                        td.setAttribute("class","col-md-1")
+                        td.innerHTML = val;
+                    }
+                    else if(key == "url"){
+                        td.setAttribute("class","col-md-1")
+                        td.innerHTML = val;
+                    }
+                    else if(key == "urlName"){
+                        td.setAttribute("class","col-md-1")
+                        td.innerHTML = val;
+                    }
+                    tr.appendChild(td);
+
+                });
+                var tdEdit = document.createElement("td");
+
+                var editButton = document.createElement("button");
+                editButton.setAttribute("type","button");
+                editButton.setAttribute("class","use-edit");
+                editButton.setAttribute("onclick","myScriptEdit(this)");
+                editButton.setAttribute("data-toggle","modal");
+                editButton.setAttribute("data-target","#editParagraph");
+                editButton.innerHTML += " / ";
+
+                var removeButton = document.createElement("button");
+                removeButton.setAttribute("type","button");
+                removeButton.setAttribute("class","use-remove");
+                removeButton.setAttribute("onclick","myScriptDelete(this)");
+                removeButton.setAttribute("data-toggle","modal");
+                removeButton.setAttribute("data-target","#removeParagraph");
+                removeButton.innerHTML += " - ";
+
+
+                tdEdit.appendChild(editButton);
+                tdEdit.appendChild(removeButton);
+                tr.appendChild(tdEdit);
+                table.appendChild(tr);
+                console.log("-------------------- ")
+
+            });
+        });
+
+    })();
+
+    //get value from table to remove table
+    function myScriptDelete(element){
+
+        var $row = jQuery(element).closest('tr');
+        var $columns = $row.find('td');
+
+        var values = "";
+
+        jQuery.each($columns, function (i, item) {
+            values = item.innerHTML;
+            if (i == 0) {
+                document.getElementById("removePara").value = values
+            }
+
+        });
+    }
+
+
+    //get value from table to edit table
+    function myScriptEdit(element) {
+
+        var $row = jQuery(element).closest('tr');
+        var $columns = $row.find('td');
+
+        var values = "";
+
+        jQuery.each($columns, function(i, item) {
+            values =  item.innerHTML ;
+            if(i == 0){
+                document.getElementById("editNumber").value = values
+            }
+            else if(i == 1){
+                document.getElementById("editContent").value = values
+            }
+            else if(i == 2){
+                document.getElementById("editCommandVoice").value = values
+            }
+            else if(i == 3){
+                document.getElementById("editLinkExist").value = values
+
+            }
+            else if(i == 4){
+                document.getElementById("editLinkText").value = values
+
+            }
+            else if(i == 5){
+                document.getElementById("editUrl").value = values
+
+            }
+        });
+        console.log(values);
+
+    };
+
+</script>
+
+
+
+
+</body>
+</html>

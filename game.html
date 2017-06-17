@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!--tsamid css -->
+    <link rel="stylesheet" type="text/css" href="includes/style.css">
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    <!--accessibilty tool-->
+    <link rel="stylesheet" title="Normal" href="includes/styleacc.css" type="text/css" />
+
+    <!--third-party-->
+    <script src="includes/js/third-parties/annyang/annyang.js"></script>
+
+    <title>Tsamid</title>
+
+    <!--2gatherAPI-->
+    <script src="includes/js/2gatherapi.js"></script>
+    <script src="includes/js/middleware/middleware.js"></script>
+    <script src="includes/js/middleware/external-inputs/external-input.js"></script>
+    <script src="includes/js/middleware/external-inputs/impl/clickers.js"></script>
+    <!--Utils-->
+
+    <script src="includes/js/utils/util.js"></script>
+    <script src="includes/js/utils/impl/annyangUtil.js"></script>
+    <script src="includes/js/utils/impl/chatUtil.js"></script>
+    <script src="includes/js/utils/impl/ttv.js"></script>
+    <script src="includes/js/utils/impl/accessibilityUtil.js"></script>
+
+    <!--Plugins-->
+    <script src="includes/js/utils/impl/boxModal.js"></script>
+
+    <script src="includes/js/plugins/plugin.js"></script>
+    <script src="includes/js/plugins/impl/chat.js"></script>
+    <script src="includes/js/plugins/impl/login.js"></script>
+    <script src="includes/js/plugins/impl/library.js"></script>
+    <script src="includes/js/plugins/impl/accessibility.js"></script>
+    <script src="includes/js/plugins/impl/menu.js"></script>
+    <script src="includes/js/plugins/impl/game.js"></script>
+
+    <script src="includes/js/plugins/factories/pluginFactory.js"></script>
+    <script src="includes/js/plugins/factories/impl/loginFactory.js"></script>
+    <script src="includes/js/plugins/factories/impl/chatFactory.js"></script>
+    <script src="includes/js/plugins/factories/impl/menuFactory.js"></script>
+    <script src="includes/js/plugins/factories/impl/libraryFactory.js"></script>
+    <script src="includes/js/plugins/factories/impl/accessibilityFactory.js"></script>
+    <script src="includes/js/plugins/factories/impl/gameFactory.js"></script>
+
+    <!--Objects-->
+    <script src="includes/js/objects/factories/objectFactory.js"></script>
+    <script src="includes/js/objects/factories/impl/inputFactory.js"></script>
+
+
+    <!--Objects-->
+    <script src="includes/js/objects/object.js"></script>
+    <script src="includes/js/objects/impl/inputText.js"></script>
+    <script src="includes/js/objects/impl/button.js"></script>
+    <script src="includes/js/objects/impl/link.js"></script>
+    <script src="includes/js/objects/impl/paragraph.js"></script>
+    <script src="includes/js/objects/impl/buttonReaderStart.js"></script>
+    <script src="includes/js/objects/impl/buttonReaderStop.js"></script>
+    <script src="includes/js/objects/impl/image.js"></script>
+    <script src="includes/js/objects/impl/li.js"></script>
+
+    <script src="includes/js/objects/factories/impl/buttonFactory.js"></script>
+    <script src="includes/js/objects/factories/impl/linkFactory.js"></script>
+    <script src="includes/js/objects/factories/impl/paragraphFactory.js"></script>
+    <script src="includes/js/objects/factories/impl/buttonReaderStartFactory.js"></script>
+    <script src="includes/js/objects/factories/impl/buttonReaderStopFactory.js"></script>
+    <script src="includes/js/objects/factories/impl/imgFactory.js"></script>
+    <script src="includes/js/objects/factories/impl/liFactory.js"></script>
+</head>
+<body>
+
+<tg-accessibility >
+</tg-accessibility>
+
+<header>
+    <div class="headerContainer">
+
+
+        <div class="headerD">
+            <a href="homePage.html"><img src="images/heart.png"> Tsamid</a>
+        </div>
+
+
+        <tg-menu options="menuOptions">
+        </tg-menu>
+
+        <nav id="adminMenu">
+            <ul class="tg-ul">
+                <li><a href="adminPanel.html">ניהול תוכן</a></li>
+                <li><a href="homePage.html">דף הבית</a></li>
+                <li><a href="library.html">ספריה</a></li>
+                <li><a href="chat.html">חדר שיחה</a></li>
+                <li><a href="agenda.html">לוח חדשות</a></li>
+                <li><a href="eventRegistration.html">רישום לאירועים</a></li>
+            </ul>
+        </nav>
+
+    </div>
+    <div class="clear"></div>
+</header>
+
+<div id="wrapper">
+    <tg-game></tg-game>
+</div>
+<div class="grass"></div>
+
+<script>
+
+    (function () {
+        //display menu with admin option
+        if(sessionStorage.displayAdmin == 1){
+            //remove tg-menu from dom
+            $( "tg-menu" ).remove();
+            $('#adminMenu').show();
+        }
+        else{
+            $('#adminMenu').hide();
+
+            window["menuOptions"] = {
+                link1: {
+                    href: "homePage.html",
+                    id: "homePage",
+                    target: "_self",
+                    text: "דף הבית",
+                },
+                link2: {
+                    href: "library.html",
+                    id: "library",
+                    target: "_self",
+                    text: "ספריה",
+                },
+                link3: {
+                    href: "chat.html",
+                    id: "chat",
+                    target: "_self",
+                    text: "חדר שיחה",
+                },
+                link4: {
+                    href: "agenda.html",
+                    id: "לוח חדשות",
+                    target: "_self",
+                    text: "לוח חדשות",
+                },
+                link5: {
+                    href: "eventRegistration.html",
+                    id: "event",
+                    target: "_self",
+                    text: "רישום לאירועים",
+                }
+
+            }
+
+        }
+
+        var options = {
+        };
+
+        var twoGatherApi = new Gatherapi(options);
+    })();
+
+
+</script>
+</body>
+</html>

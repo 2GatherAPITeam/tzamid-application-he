@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!--tsamid css -->
+    <link rel="stylesheet" type="text/css" href="includes/style.css">
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    
+    <!--Table-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+<header>
+    <div class="headerContainer">
+        <div class="headerD">
+            <a href="adminPanel.html"><img src="images/heart.png"> צמ"ד </a>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li class="bold"><a href="homePage.html">צמי"ד</a></li>
+                <li><a href="adminPanel.html">דף הבית</a></li>
+                <li><a href="adminLibrary.html">ספריה</a></li>
+                <li><a href="adminUsers.html">משתמשים</a></li>
+                <li><a href="adminMessageBoard.html">לוח חדשות</a></li>
+                <li><a href="adminDevices.html">מכשירים</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="clear"></div>
+</header>
+
+<div>
+</div>
+<div class="clear"></div>
+</header>
+
+<div class="wrapper">
+
+    <div class="container">
+        <h2 style="text-align: center ; margin-bottom: 2%">ניהול תוכן - ספריה</h2>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>מספר הפריט</th>
+                <th>שם</th>
+                <th>תוכן</th>
+                <th>תמונה</th>
+                <th>פעולות</th>
+            </tr>
+            </thead>
+            <tbody id="table">
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- Trigger the modal with a button -->
+    <button class="adminButton" type="button" class="btn btn-success" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addUser"> + </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addUser" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">הוסף ספר חדש לספריה</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form class="form-horizontal" action="https://tsamid-ws.herokuapp.com/tsamid/addStories" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="storyId">מספר הפריט:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="storyId" placeholder="מספר הפריט" name="storyId">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="Header">שם:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="Header" placeholder="שם" name="header">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="storyFile">התוכן (קובץ טקסט): </label>
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control" id="storyFile" placeholder="תוכן" name="storyFile">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >תמונת הפריט:</label>
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control" id="imageFile" placeholder="תמונה" name="imgFile">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-basic">הוסיף</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="removeBook" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Remove Book From DB</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" action="https://tsamid-ws.herokuapp.com/tsamid/removeStory" method="POST" >
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="bookRemove">מספר הפריט:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="bookRemove"  name="storyId">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-basic"> מחק </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+</div>
+<div class="grass"></div>
+
+<script>
+
+    (function(){
+
+        var table = document.getElementById("table");
+
+        $.get( "https://tsamid-ws.herokuapp.com/tsamid/getStories", function( data ) {
+            $.each( data["data"], function( key, val ) {
+                var tr = document.createElement("tr");
+
+                $.each( val, function( key, val ) {
+                    console.log("key " + key + " val " + val)
+
+                    var td = document.createElement("td");
+
+                    if(key == "id"){
+                        td.innerHTML = val ;
+                    }
+                    else if(key == "header"){
+                        td.innerHTML = val;
+                    }
+                    else if(key == "storyURL"){
+                        td.innerHTML = val ;
+                    }
+                    else if(key == "imgURL"){
+                        td.innerHTML = val;
+                    }
+
+                    tr.appendChild(td);
+
+                });
+                var tdEdit = document.createElement("td");
+
+                var removeButton = document.createElement("button");
+                removeButton.setAttribute("type","button");
+                removeButton.setAttribute("class","use-remove");
+                removeButton.setAttribute("onclick","myScriptDelete(this)");
+                removeButton.setAttribute("data-toggle","modal");
+                removeButton.setAttribute("data-target","#removeBook");
+                removeButton.innerHTML += " - ";
+
+                tdEdit.appendChild(removeButton);
+                tr.appendChild(tdEdit);
+                table.appendChild(tr);
+                console.log("-------------------- ")
+
+            });
+        });
+
+
+    })();
+
+    //get value from table to remove table
+    function myScriptDelete(element){
+
+        var $row = jQuery(element).closest('tr');
+        var $columns = $row.find('td');
+
+        var values = "";
+
+        jQuery.each($columns, function (i, item) {
+            values = item.innerHTML;
+            if (i == 0) {
+                console.log(values)
+                document.getElementById("bookRemove").value = values
+            }
+
+        });
+    }
+</script>
+
+</body>
+</html>
