@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <!--tsamid css -->
     <link rel="stylesheet" type="text/css" href="includes/style.css">
-
+    <link href="jquery-ui.min.css" rel="stylesheet">
+    <link href="keyboard.css" rel="stylesheet">
+    <link href="demo.css" rel="stylesheet">
     <!--accessibilty tool-->
     <link rel="stylesheet" title="Normal" href="includes/styleacc.css" type="text/css" />
 
@@ -86,7 +88,7 @@
             $('#adminMenu').show();
 
         }
-        else{
+        else {
             $('#adminMenu').hide();
 
             window["menu"] = {
@@ -128,7 +130,7 @@
                 }
 
             }
-
+        }
             window["accessibility"] = {
                 func1 : {
                     option : "bigger_font",
@@ -272,7 +274,7 @@
                 'message': {
                     name: 'משפחה *search', func: function (contents) {
                         //set content
-                        document.querySelector("#Surname").value = contents;
+                        document.querySelector("#surname").value = contents;
 
                     }
                 },
