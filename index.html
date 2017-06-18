@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <!--tsamid css -->
     <link rel="stylesheet" type="text/css" href="includes/style.css">
-	<link rel="stylesheet" title="Normal" href="includes/styleacc.css" type="text/css" />
 
-   
+    <!--accessibilty tool-->
+    <link rel="stylesheet" title="Normal" href="includes/styleacc.css" type="text/css" />
+
     <title>Tsamid</title>
-	<!--2gatherAPI-->
-    <script src="includes/js/2gahterAPI.js"></script>
-
+    <!--third-party-->
+    <script src="https://cdn.rawgit.com/2GatherAPITeam/2gatherapi-js/27f52e4f/includes/2gatherapi.js"></script>
 </head>
 <body>
 
@@ -33,7 +33,7 @@
 
 
 <div id="signin">
-    <tg-login options="loginOptions" class="markable">
+    <tg-login options="loginoptions" class="markable">
     </tg-login>
 
 </div>
@@ -72,6 +72,7 @@
                         else{
                             //get name of the user for chat
                             sessionStorage.name = name;
+                            console.log(jsonData["data"][index]["utils"]);
                             sessionStorage.utils = jsonData["data"][index]["utils"];
                             sessionStorage.device = jsonData["data"][index]["device"];
                             sessionStorage.lang = jsonData["data"][index]["lang"];
@@ -112,7 +113,7 @@
 
     };
 
-    var loginOptions = {
+    var loginoptions = {
         labels: {
             nickname: "שם משתמש",
             password: "סיסמה",
@@ -142,9 +143,10 @@
 
     var options = {
         middlewareDevices:[],
+        requiredUtills :["voice commands"]
     };
-	
-	var accessibility = {
+
+    var accessibility = {
         func1 : {
             option : "bigger_font",
             text : "הגדל פונט",
@@ -201,13 +203,14 @@
             image : "images/accessibility/hightlightTitles.png",
         },
         func12 : {
-            option : "hightlightTitles",
+            option : "hightlightLinks",
             text : "הדגשת קישורים",
             image : "images/accessibility/links.png",
 
         }
+
+
     }
-	
     var twoGatherApi = new Gatherapi(options);
 
 </script>

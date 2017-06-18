@@ -5,75 +5,16 @@
     <!--tsamid css -->
     <link rel="stylesheet" type="text/css" href="includes/style.css">
 
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-
     <!--accessibilty tool-->
     <link rel="stylesheet" title="Normal" href="includes/styleacc.css" type="text/css" />
 
-    <!--third-party-->
-    <script src="includes/js/third-parties/annyang/annyang.js"></script>
-
     <title>Tsamid</title>
-
-    <!--2gatherAPI-->
-    <script src="includes/js/2gatherapi.js"></script>
-    <script src="includes/js/middleware/middleware.js"></script>
-    <script src="includes/js/middleware/external-inputs/external-input.js"></script>
-    <script src="includes/js/middleware/external-inputs/impl/clickers.js"></script>
-    <!--Utils-->
-
-    <script src="includes/js/utils/util.js"></script>
-    <script src="includes/js/utils/impl/annyangUtil.js"></script>
-    <script src="includes/js/utils/impl/chatUtil.js"></script>
-    <script src="includes/js/utils/impl/ttv.js"></script>
-    <script src="includes/js/utils/impl/accessibilityUtil.js"></script>
-
-    <!--Plugins-->
-    <script src="includes/js/utils/impl/boxModal.js"></script>
-
-    <script src="includes/js/plugins/plugin.js"></script>
-    <script src="includes/js/plugins/impl/chat.js"></script>
-    <script src="includes/js/plugins/impl/login.js"></script>
-    <script src="includes/js/plugins/impl/library.js"></script>
-    <script src="includes/js/plugins/impl/accessibility.js"></script>
-    <script src="includes/js/plugins/impl/menu.js"></script>
-    <script src="includes/js/plugins/impl/game.js"></script>
-
-    <script src="includes/js/plugins/factories/pluginFactory.js"></script>
-    <script src="includes/js/plugins/factories/impl/loginFactory.js"></script>
-    <script src="includes/js/plugins/factories/impl/chatFactory.js"></script>
-    <script src="includes/js/plugins/factories/impl/menuFactory.js"></script>
-    <script src="includes/js/plugins/factories/impl/libraryFactory.js"></script>
-    <script src="includes/js/plugins/factories/impl/accessibilityFactory.js"></script>
-    <script src="includes/js/plugins/factories/impl/gameFactory.js"></script>
-
-    <!--Objects-->
-    <script src="includes/js/objects/factories/objectFactory.js"></script>
-    <script src="includes/js/objects/factories/impl/inputFactory.js"></script>
-
-
-    <!--Objects-->
-    <script src="includes/js/objects/object.js"></script>
-    <script src="includes/js/objects/impl/inputText.js"></script>
-    <script src="includes/js/objects/impl/button.js"></script>
-    <script src="includes/js/objects/impl/link.js"></script>
-    <script src="includes/js/objects/impl/paragraph.js"></script>
-    <script src="includes/js/objects/impl/buttonReaderStart.js"></script>
-    <script src="includes/js/objects/impl/buttonReaderStop.js"></script>
-    <script src="includes/js/objects/impl/image.js"></script>
-    <script src="includes/js/objects/impl/li.js"></script>
-
-    <script src="includes/js/objects/factories/impl/buttonFactory.js"></script>
-    <script src="includes/js/objects/factories/impl/linkFactory.js"></script>
-    <script src="includes/js/objects/factories/impl/paragraphFactory.js"></script>
-    <script src="includes/js/objects/factories/impl/buttonReaderStartFactory.js"></script>
-    <script src="includes/js/objects/factories/impl/buttonReaderStopFactory.js"></script>
-    <script src="includes/js/objects/factories/impl/imgFactory.js"></script>
-    <script src="includes/js/objects/factories/impl/liFactory.js"></script>
+    <!--third-party-->
+    <script src="https://cdn.rawgit.com/2GatherAPITeam/2gatherapi-js/27f52e4f/includes/2gatherapi.js"></script>
 </head>
 <body>
 
-<tg-accessibility >
+<tg-accessibility options="accessibility">
 </tg-accessibility>
 
 <header>
@@ -85,7 +26,7 @@
         </div>
 
 
-        <tg-menu options="menuOptions">
+        <tg-menu options="menu">
         </tg-menu>
 
         <nav id="adminMenu">
@@ -103,7 +44,7 @@
     <div class="clear"></div>
 </header>
 
-<div id="wrapper">
+<div class="wrapper">
     <tg-game></tg-game>
 </div>
 <div class="grass"></div>
@@ -120,7 +61,7 @@
         else{
             $('#adminMenu').hide();
 
-            window["menuOptions"] = {
+            window["menu"] = {
                 link1: {
                     href: "homePage.html",
                     id: "homePage",
@@ -156,7 +97,77 @@
 
         }
 
+        window["accessibility"] = {
+            func1 : {
+                option : "bigger_font",
+                text : "הגדל פונט",
+                image : "images/accessibility/bigFont.png"
+            },
+            func2 : {
+                option : "smaller_font",
+                text : "הקטן פונט",
+                image : "images/accessibility/smallFont.png"
+            },
+            func3 : {
+                option: "legible_font",
+                text: "פונט קריא",
+                image: "images/accessibility/legibleFont.png",
+            },
+            func4 : {
+                option : "bright_Contrast",
+                text : "בהירות בהירה",
+                image : "images/accessibility/brightContrast.png",
+            },
+            func5 : {
+                option : "impared",
+                text : "בהירות כהה",
+                image : "images/accessibility/darkContrast.png",
+            },
+            func6 : {
+                option: "color_blind",
+                text: "עוורי ראייה",
+                image: "images/accessibility/colorBlind.png",
+            },
+            func7 : {
+                option : "blackCursor",
+                text : "סמן שחור",
+                image : "images/accessibility/blackCursor.png",
+            },
+            func8 : {
+                option : "whiteCursor",
+                text : "סמן לבן",
+                image : "images/accessibility/whiteCursor.png",
+            },
+            func9 : {
+                option : "magnifier",
+                text : "זכוכית מגדלת",
+                image : "images/accessibility/magni.png",
+            },
+            func10 : {
+                option : "imagesDescriptions",
+                text : "תיאור לתמונות",
+                image : "images/accessibility/imagesDes.png",
+            },
+            func11 : {
+                option : "hightlightTitles",
+                text : "הדגשת כותרות",
+                image : "images/accessibility/hightlightTitles.png",
+            },
+            func12 : {
+                option : "hightlightTitles",
+                text : "הדגשת קישורים",
+                image : "images/accessibility/links.png",
+            }
+        }
+
         var options = {
+            language: sessionStorage.getItem("lang"),
+            middlewareDevices: {},
+            requiredUtills : sessionStorage.getItem("utils").split(",")
+        };
+        options.middlewareDevices[sessionStorage.getItem("device")] = {
+            vendorId: sessionStorage.getItem("vendorId"),
+            productId: sessionStorage.getItem("productId")
         };
 
         var twoGatherApi = new Gatherapi(options);

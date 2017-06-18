@@ -604,52 +604,6 @@ img:hover{
     position: relative;
 }
 
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 2; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 2px solid #fd6ca3;
-    width: 80%;
-}
-
-/* The Close Button */
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 4em;
-    font-weight: bold;
-    top: -42px;
-    position: relative;
-    left: 1.5%;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/*end model box for library*/
-
-
 /*Agenda*/
 .news{
     width: 97%;
@@ -869,25 +823,26 @@ tbody td {
     border-radius: 5px;
 }
 /*Forms*/
-.form{
+.form, .modal-content{
     width: 700px;
     position: relative;
     margin: 0px auto;
-    height: 330px;
+    /* height: 387px; */
     background-color: #ffffff;
-    top: 90px;
+    top: 40px;
     border-bottom: 5px #fd6ca3 solid;
     border-radius: 4px;
     box-shadow: 0px 0px 10px 0px rgba(39,49,65,0.1);
     padding-top: 20px;
     text-align: center;
+    padding-bottom: 3%;
 }
 #formEvent{
     width: 60%;
     margin-top: 2%;
     margin: 0px auto;
 }
-.form label{
+.form label, .form-group label{
     display: block;
     position: relative;
     text-align: right;
@@ -895,7 +850,7 @@ tbody td {
     direction: rtl;
     padding-right: 6%;
 }
-.form input{
+.form input, .form-group input, .form-group select{
     width: 230px;
     height: 30px;
     /* border-radius: 5px; */
@@ -903,6 +858,7 @@ tbody td {
     position: absolute;
     /* border: 1.5px #baa9a9 solid; */
     left: 30%;
+    direction: rtl;
     margin-top: -42px;
 }
 form button{
@@ -920,4 +876,38 @@ form button{
 form button:hover, .adminButton:hover{
     background-color: rgba(253, 108, 163, 0.49);
 }
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 4em;
+    font-weight: bold;
+    top: -26px;
+    position: relative;
+    left: -1.5%;
+    background: none;
+    border: none;
+}
 
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*end model box for library*/

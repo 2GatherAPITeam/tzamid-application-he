@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <!--tsamid css -->
     <link rel="stylesheet" type="text/css" href="includes/style.css">
-	<link rel="stylesheet" title="Normal" href="includes/styleacc.css" type="text/css" />
 
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+    <!--accessibilty tool-->
+    <link rel="stylesheet" title="Normal" href="includes/styleacc.css" type="text/css" />
 
     <title>Tsamid</title>
-	<!--2gatherAPI-->
-    <script src="includes/js/2gahterAPI2.js"></script>
-
+    <!--third-party-->
+    <script src="https://cdn.rawgit.com/2GatherAPITeam/2gatherapi-js/27f52e4f/includes/2gatherapi.js"></script>
 </head>
 <body>
 
@@ -25,9 +23,10 @@
         <div class="headerD">
             <a href="homePage.html"><img src="images/heart.png"> צמ"ד </a>
         </div>
-		
-		<tg-menu options="menu"></tg-menu>
-		
+
+        <tg-menu options="menu">
+        </tg-menu>
+
         <nav id="adminMenu">
             <ul class="tg-ul">
                 <li><a href="adminPanel.html">ניהול תוכן</a></li>
@@ -36,7 +35,7 @@
                 <li><a href="chat.html">חדר שיחה</a></li>
                 <li><a href="agenda.html">לוח חדשות</a></li>
                 <li><a href="eventRegistration.html">רישום לאירועים</a></li>
-                <li><a href="games.html">משחקיה</a></li>
+                <li><a href="game.html">משחקיה</a></li>
             </ul>
         </nav>
 
@@ -112,21 +111,18 @@
                     id: "homePage",
                     target: "_self",
                     text: "דף הבית",
-//          commandTrigger: "home page"
                 },
                 link2: {
                     href: "library.html",
                     id: "library",
                     target: "_self",
                     text: "ספריה",
-//            commandTrigger: "library"
                 },
                 link3: {
                     href: "chat.html",
                     id: "chat",
                     target: "_self",
                     text: "חדר שיחה",
-                    commandTrigger: "חדר שיחה"
                 },
                 link4: {
                     href: "agenda.html",
@@ -140,31 +136,16 @@
                     id: "event",
                     target: "_self",
                     text: "רישום לאירועים",
-//            commandTrigger: "agenda"
                 },
                 link6: {
-                    href: "games.html",
+                    href: "game.html",
                     id: "game",
                     target: "_self",
                     text: "משחקיה",
-//            commandTrigger: "agenda"
                 }
-
             }
 
-
-            var options = {
-                language: sessionStorage.getItem("lang"),
-                middlewareDevices: {},
-                requiredUtills : [sessionStorage.getItem("utils")]
-            };
-            options.middlewareDevices[sessionStorage.getItem("device")] = {
-                vendorId: sessionStorage.getItem("vendorId"),
-                productId: sessionStorage.getItem("productId")
-            };
-        }
-
-		window["accessibility"] = {
+            window["accessibility"] = {
                 func1 : {
                     option : "bigger_font",
                     text : "הגדל פונט",
@@ -226,7 +207,20 @@
                     image : "images/accessibility/links.png",
                 }
             }
-		
+
+
+            var options = {
+                language: sessionStorage.getItem("lang"),
+                middlewareDevices: {},
+                requiredUtills : sessionStorage.getItem("utils").split(",")
+            };
+            options.middlewareDevices[sessionStorage.getItem("device")] = {
+                vendorId: sessionStorage.getItem("vendorId"),
+                productId: sessionStorage.getItem("productId")
+            };
+        }
+
+
         var url = 'https://tsamid-ws.herokuapp.com/tsamid/getStories';
         var jsonData;
 
@@ -244,6 +238,7 @@
                     var header = document.createElement("h2");
                     header.innerHTML+=jsonData["data"][index]["header"];
                     div.insertBefore(header, div.firstChild);
+
 
                     //create var options for tg element
                     window['book'+index] = {

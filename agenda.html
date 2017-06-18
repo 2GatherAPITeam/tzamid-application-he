@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <!--tsamid css -->
     <link rel="stylesheet" type="text/css" href="includes/style.css">
-	<link rel="stylesheet" title="Normal" href="includes/styleacc.css" type="text/css" />
 
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+    <!--accessibilty tool-->
+    <link rel="stylesheet" title="Normal" href="includes/styleacc.css" type="text/css" />
 
     <title>Tsamid</title>
-	<!--2gatherAPI-->
-    <script src="includes/js/2gahterAPI.js"></script>
-
+    <!--third-party-->
+    <script src="https://cdn.rawgit.com/2GatherAPITeam/2gatherapi-js/27f52e4f/includes/2gatherapi.js"></script>
 </head>
 <body>
 
@@ -25,7 +23,9 @@
             <a href="homePage.html"><img src="images/heart.png"> צמ"ד </a>
         </div>
 
-        <tg-menu options="menu"></tg-menu>
+        <tg-menu options="menu">
+
+        </tg-menu>
 
         <nav id="adminMenu">
             <ul class="tg-ul">
@@ -35,7 +35,7 @@
                 <li><a href="chat.html">חדר שיחה</a></li>
                 <li><a href="agenda.html">לוח חדשות</a></li>
                 <li><a href="eventRegistration.html">רישום לאירועים</a></li>
-                <li><a href="games.html">משחקיה</a></li>
+                <li><a href="game.html">משחקיה</a></li>
             </ul>
         </nav>
     </div>
@@ -98,77 +98,78 @@
                     text: "רישום לאירועים",
                 },
                 link6: {
-                    href: "games.html",
+                    href: "game.html",
                     id: "game",
                     target: "_self",
                     text: "משחקיה",
+//            commandTrigger: "agenda"
                 }
 
             }
         }
-		
-		window["accessibility"] = {
-                func1 : {
-                    option : "bigger_font",
-                    text : "הגדל פונט",
-                    image : "images/accessibility/bigFont.png"
-                },
-                func2 : {
-                    option : "smaller_font",
-                    text : "הקטן פונט",
-                    image : "images/accessibility/smallFont.png"
-                },
-                func3 : {
-                    option: "legible_font",
-                    text: "פונט קריא",
-                    image: "images/accessibility/legibleFont.png",
-                },
-                func4 : {
-                    option : "bright_Contrast",
-                    text : "בהירות בהירה",
-                    image : "images/accessibility/brightContrast.png",
-                },
-                func5 : {
-                    option : "impared",
-                    text : "בהירות כהה",
-                    image : "images/accessibility/darkContrast.png",
-                },
-                func6 : {
-                    option: "color_blind",
-                    text: "עוורי ראייה",
-                    image: "images/accessibility/colorBlind.png",
-                },
-                func7 : {
-                    option : "blackCursor",
-                    text : "סמן שחור",
-                    image : "images/accessibility/blackCursor.png",
-                },
-                func8 : {
-                    option : "whiteCursor",
-                    text : "סמן לבן",
-                    image : "images/accessibility/whiteCursor.png",
-                },
-                func9 : {
-                    option : "magnifier",
-                    text : "זכוכית מגדלת",
-                    image : "images/accessibility/magni.png",
-                },
-                func10 : {
-                    option : "imagesDescriptions",
-                    text : "תיאור לתמונות",
-                    image : "images/accessibility/imagesDes.png",
-                },
-                func11 : {
-                    option : "hightlightTitles",
-                    text : "הדגשת כותרות",
-                    image : "images/accessibility/hightlightTitles.png",
-                },
-                func12 : {
-                    option : "hightlightTitles",
-                    text : "הדגשת קישורים",
-                    image : "images/accessibility/links.png",
-                }
+
+        window["accessibility"] = {
+            func1 : {
+                option : "bigger_font",
+                text : "הגדל פונט",
+                image : "images/accessibility/bigFont.png"
+            },
+            func2 : {
+                option : "smaller_font",
+                text : "הקטן פונט",
+                image : "images/accessibility/smallFont.png"
+            },
+            func3 : {
+                option: "legible_font",
+                text: "פונט קריא",
+                image: "images/accessibility/legibleFont.png",
+            },
+            func4 : {
+                option : "bright_Contrast",
+                text : "בהירות בהירה",
+                image : "images/accessibility/brightContrast.png",
+            },
+            func5 : {
+                option : "impared",
+                text : "בהירות כהה",
+                image : "images/accessibility/darkContrast.png",
+            },
+            func6 : {
+                option: "color_blind",
+                text: "עוורי ראייה",
+                image: "images/accessibility/colorBlind.png",
+            },
+            func7 : {
+                option : "blackCursor",
+                text : "סמן שחור",
+                image : "images/accessibility/blackCursor.png",
+            },
+            func8 : {
+                option : "whiteCursor",
+                text : "סמן לבן",
+                image : "images/accessibility/whiteCursor.png",
+            },
+            func9 : {
+                option : "magnifier",
+                text : "זכוכית מגדלת",
+                image : "images/accessibility/magni.png",
+            },
+            func10 : {
+                option : "imagesDescriptions",
+                text : "תיאור לתמונות",
+                image : "images/accessibility/imagesDes.png",
+            },
+            func11 : {
+                option : "hightlightTitles",
+                text : "הדגשת כותרות",
+                image : "images/accessibility/hightlightTitles.png",
+            },
+            func12 : {
+                option : "hightlightTitles",
+                text : "הדגשת קישורים",
+                image : "images/accessibility/links.png",
             }
+        }
 
         var url = 'https://tsamid-ws.herokuapp.com/tsamid/getMessages';
         var jsonData;
@@ -233,7 +234,7 @@
     var options = {
         language: sessionStorage.getItem("lang"),
         middlewareDevices: {},
-        requiredUtills : [sessionStorage.getItem("utils")]
+        requiredUtills : sessionStorage.getItem("utils").split(",")
     };
     options.middlewareDevices[sessionStorage.getItem("device")] = {
         vendorId: sessionStorage.getItem("vendorId"),
