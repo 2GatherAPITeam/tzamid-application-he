@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <!--tsamid css -->
     <link rel="stylesheet" type="text/css" href="includes/style.css">
-
-    <!--accessibilty tool-->
-    <link rel="stylesheet" title="Normal" href="includes/styleacc.css" type="text/css" />
+	<link rel="stylesheet" title="Normal" href="includes/styleacc.css" type="text/css" />
 
     <title>Tsamid</title>
-    <!--third-party-->
-    <script src="https://cdn.rawgit.com/2GatherAPITeam/2gatherapi-js/27f52e4f/includes/2gatherapi.js"></script>
+	<!--2gatherAPI-->
+    <script src="includes/js/2gahterAPI.js"></script>
+
 </head>
 <body>
 
@@ -25,8 +24,7 @@
         </div>
 
 
-        <tg-menu options="menu">
-        </tg-menu>
+        <tg-menu options="menu"></tg-menu>
 
         <nav id="adminMenu">
             <ul class="tg-ul">
@@ -36,7 +34,7 @@
                 <li><a href="chat.html">חדר שיחה</a></li>
                 <li><a href="agenda.html">לוח חדשות</a></li>
                 <li><a href="eventRegistration.html">רישום לאירועים</a></li>
-                <li><a href="game.html">משחקיה</a></li>
+                <li><a href="games.html">משחקיה</a></li>
             </ul>
         </nav>
 
@@ -92,109 +90,104 @@
                     id: "homePage",
                     target: "_self",
                     text: "דף הבית",
-//          commandTrigger: "home page"
                 },
                 link2: {
                     href: "library.html",
                     id: "library",
                     target: "_self",
                     text: "ספריה",
-//            commandTrigger: "library"
                 },
                 link3: {
                     href: "chat.html",
                     id: "chat",
                     target: "_self",
                     text: "חדר שיחה",
-                    commandTrigger: "חדר שיחה"
                 },
                 link4: {
                     href: "agenda.html",
                     id: "לוח חדשות",
                     target: "_self",
                     text: "לוח מודעות",
-                    commandTrigger: "לוח חדשות"
                 },
                 link5: {
                     href: "eventRegistration.html",
                     id: "event",
                     target: "_self",
                     text: "רישום לאירועים",
-//            commandTrigger: "agenda"
                 },
                 link6: {
-                    href: "game.html",
+                    href: "games.html",
                     id: "game",
                     target: "_self",
                     text: "משחקיה",
-//            commandTrigger: "agenda"
                 }
 
             }
+
         }
 
-        window["accessibility"] = {
-            func1 : {
-                option : "bigger_font",
-                text : "הגדל פונט",
-                image : "images/accessibility/bigFont.png"
-            },
-            func2 : {
-                option : "smaller_font",
-                text : "הקטן פונט",
-                image : "images/accessibility/smallFont.png"
-            },
-            func3 : {
-                option: "legible_font",
-                text: "פונט קריא",
-                image: "images/accessibility/legibleFont.png",
-            },
-            func4 : {
-                option : "bright_Contrast",
-                text : "בהירות בהירה",
-                image : "images/accessibility/brightContrast.png",
-            },
-            func5 : {
-                option : "impared",
-                text : "בהירות כהה",
-                image : "images/accessibility/darkContrast.png",
-            },
-            func6 : {
-                option: "color_blind",
-                text: "עוורי ראייה",
-                image: "images/accessibility/colorBlind.png",
-            },
-            func7 : {
-                option : "blackCursor",
-                text : "סמן שחור",
-                image : "images/accessibility/blackCursor.png",
-            },
-            func8 : {
-                option : "whiteCursor",
-                text : "סמן לבן",
-                image : "images/accessibility/whiteCursor.png",
-            },
-            func9 : {
-                option : "magnifier",
-                text : "זכוכית מגדלת",
-                image : "images/accessibility/magni.png",
-            },
-            func10 : {
-                option : "imagesDescriptions",
-                text : "תיאור לתמונות",
-                image : "images/accessibility/imagesDes.png",
-            },
-            func11 : {
-                option : "hightlightTitles",
-                text : "הדגשת כותרות",
-                image : "images/accessibility/hightlightTitles.png",
-            },
-            func12 : {
-                option : "hightlightTitles",
-                text : "הדגשת קישורים",
-                image : "images/accessibility/links.png",
+		window["accessibility"] = {
+                func1 : {
+                    option : "bigger_font",
+                    text : "הגדל פונט",
+                    image : "images/accessibility/bigFont.png"
+                },
+                func2 : {
+                    option : "smaller_font",
+                    text : "הקטן פונט",
+                    image : "images/accessibility/smallFont.png"
+                },
+                func3 : {
+                    option: "legible_font",
+                    text: "פונט קריא",
+                    image: "images/accessibility/legibleFont.png",
+                },
+                func4 : {
+                    option : "bright_Contrast",
+                    text : "בהירות בהירה",
+                    image : "images/accessibility/brightContrast.png",
+                },
+                func5 : {
+                    option : "impared",
+                    text : "בהירות כהה",
+                    image : "images/accessibility/darkContrast.png",
+                },
+                func6 : {
+                    option: "color_blind",
+                    text: "עוורי ראייה",
+                    image: "images/accessibility/colorBlind.png",
+                },
+                func7 : {
+                    option : "blackCursor",
+                    text : "סמן שחור",
+                    image : "images/accessibility/blackCursor.png",
+                },
+                func8 : {
+                    option : "whiteCursor",
+                    text : "סמן לבן",
+                    image : "images/accessibility/whiteCursor.png",
+                },
+                func9 : {
+                    option : "magnifier",
+                    text : "זכוכית מגדלת",
+                    image : "images/accessibility/magni.png",
+                },
+                func10 : {
+                    option : "imagesDescriptions",
+                    text : "תיאור לתמונות",
+                    image : "images/accessibility/imagesDes.png",
+                },
+                func11 : {
+                    option : "hightlightTitles",
+                    text : "הדגשת כותרות",
+                    image : "images/accessibility/hightlightTitles.png",
+                },
+                func12 : {
+                    option : "hightlightTitles",
+                    text : "הדגשת קישורים",
+                    image : "images/accessibility/links.png",
+                }
             }
-        }
 
         var options = {
             language: sessionStorage.getItem("lang"),
@@ -210,7 +203,7 @@
 //        chatUtil.initChat("ws://ec2-54-191-107-88.us-west-2.compute.amazonaws.com:8080/index.php");
 
         window["chatOptions"] = {
-            wsURL: "ws://ec2-54-202-77-129.us-west-2.compute.amazonaws.com:8080/index.php",
+            wsURL: "ws://ec2-54-202-15-139.us-west-2.compute.amazonaws.com:8080/index.php",
             onClickFunc: {
                 func: function () {
                     document.getElementById('send-btn').click();

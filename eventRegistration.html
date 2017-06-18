@@ -194,13 +194,13 @@
 
             var options = {
                 language: sessionStorage.getItem("lang"),
-                middlewareDevices: {}
+                middlewareDevices: {},
+                requiredUtills : sessionStorage.getItem("utils").split(",")
             };
             options.middlewareDevices[sessionStorage.getItem("device")] = {
                 vendorId: sessionStorage.getItem("vendorId"),
                 productId: sessionStorage.getItem("productId")
             };
-        }
 
 
         window["buttonSend"] = {
