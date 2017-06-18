@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1530224a-2f60-426b-a332-b83f1af2ad84" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/ui-bg_glass_20_555555_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/ui-bg_glass_40_0078a3_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/ui-bg_inset-soft_25_000000_1x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/ui-bg_inset-soft_30_f58400_1x100.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agenda.html" afterPath="$PROJECT_DIR$/agenda.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chat.html" afterPath="$PROJECT_DIR$/chat.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventRegistration.html" afterPath="$PROJECT_DIR$/eventRegistration.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game.html" afterPath="$PROJECT_DIR$/game.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homePage.html" afterPath="$PROJECT_DIR$/homePage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -52,8 +45,8 @@
       <file leaf-file-name="game.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/game.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="15" selection-end-column="7" />
+            <state relative-caret-position="204">
+              <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="101" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -62,8 +55,18 @@
       <file leaf-file-name="eventRegistration.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eventRegistration.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="306" column="7" lean-forward="true" selection-start-line="306" selection-start-column="7" selection-end-line="306" selection-end-column="7" />
+            <state relative-caret-position="272">
+              <caret line="129" column="17" lean-forward="false" selection-start-line="129" selection-start-column="17" selection-end-line="129" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="7" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -89,10 +92,10 @@
       <find>buttonsend</find>
       <find>2ga</find>
       <find>Surname</find>
-      <find>surname</find>
       <find>utils</find>
       <find>games</find>
       <find>aws</find>
+      <find>surname</find>
       <find>game</find>
       <find>צמ</find>
     </findStrings>
@@ -105,13 +108,13 @@
       <list>
         <option value="$PROJECT_DIR$/bin/app.js" />
         <option value="$PROJECT_DIR$/bin/www" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/library.html" />
         <option value="$PROJECT_DIR$/adminMessageBoard.html" />
         <option value="$PROJECT_DIR$/homePage.html" />
         <option value="$PROJECT_DIR$/game.html" />
         <option value="$PROJECT_DIR$/agenda.html" />
         <option value="$PROJECT_DIR$/chat.html" />
+        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/eventRegistration.html" />
       </list>
     </option>
@@ -324,7 +327,7 @@
       <updated>1497680889241</updated>
       <workItem from="1497680891024" duration="20000" />
       <workItem from="1497681609390" duration="3352000" />
-      <workItem from="1497692813295" duration="12999000" />
+      <workItem from="1497692813295" duration="14536000" />
     </task>
     <task id="LOCAL-00001" summary="tsamid-he version">
       <created>1497813033587</created>
@@ -347,11 +350,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497818314736</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="css of virtaul keyboard">
+      <created>1497820123485</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1497820123485</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16371000" />
+    <option name="totallyTimeSpent" value="17908000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -431,14 +441,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="206" column="28" lean-forward="false" selection-start-line="206" selection-start-column="28" selection-end-line="206" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/library.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
@@ -471,18 +473,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="7" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/game.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="15" selection-end-column="7" />
+        <state relative-caret-position="204">
+          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="101" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/eventRegistration.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="306" column="7" lean-forward="true" selection-start-line="306" selection-start-column="7" selection-end-line="306" selection-end-column="7" />
+        <state relative-caret-position="272">
+          <caret line="129" column="17" lean-forward="false" selection-start-line="129" selection-start-column="17" selection-end-line="129" selection-end-column="17" />
           <folding />
         </state>
       </provider>
